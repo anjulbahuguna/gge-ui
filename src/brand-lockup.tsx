@@ -10,6 +10,8 @@ export interface BrandLockupProps extends React.HTMLAttributes<HTMLDivElement> {
   product: string; // "Paddock" | "Cortex"
   color?: string; // wordmark color (brand). default GGE green
   org?: string | null; // small eyebrow above the product name; null to omit
+  orgColor?: string; // eyebrow color — pass a light tone on dark surfaces (rail/login);
+  // omit on light surfaces to use the muted gge-stone default.
   markSrc?: string;
   size?: "sm" | "md" | "lg";
 }
@@ -29,6 +31,7 @@ export function BrandLockup({
   product,
   color = GGE.green,
   org = "Golden Gate Equestrian",
+  orgColor,
   markSrc = "/ggeqs-mark.png",
   size = "md",
   className,
@@ -46,7 +49,13 @@ export function BrandLockup({
       />
       <div className="leading-tight">
         {org && (
-          <p className="text-[11px] font-medium uppercase tracking-wider text-gge-stone">
+          <p
+            className={cn(
+              "text-[11px] font-medium uppercase tracking-wider",
+              !orgColor && "text-gge-stone",
+            )}
+            style={orgColor ? { color: orgColor } : undefined}
+          >
             {org}
           </p>
         )}
