@@ -21,7 +21,14 @@ export interface BrandPanelProps extends React.HTMLAttributes<HTMLDivElement> {
   bylineColor?: string; // muted byline color (default muted cream)
   org?: string;
   markSrc?: string;
+  size?: "rail" | "hero"; // rail = the sidebar header (default); hero = larger,
+  // for a landing/marketing hero.
 }
+
+const SIZES = {
+  rail: { crest: 120, product: "text-[40px]", byline: "text-[10px]", pad: "px-5 pb-6 pt-7" },
+  hero: { crest: 184, product: "text-[64px]", byline: "text-xs", pad: "px-8 pb-10 pt-11" },
+} as const;
 
 export function BrandPanel({
   product,
@@ -33,14 +40,16 @@ export function BrandPanel({
   bylineColor = "rgba(245,240,232,0.6)",
   org = "Golden Gate Equestrian",
   markSrc = "/ggeqs-mark.png",
+  size = "rail",
   className,
   style,
   ...props
 }: BrandPanelProps) {
   const top = baseTop ?? base;
+  const s = SIZES[size];
   return (
     <div
-      className={cn("relative flex flex-col items-center px-5 pb-6 pt-7 text-center", className)}
+      className={cn("relative flex flex-col items-center text-center", s.pad, className)}
       style={{
         background: `radial-gradient(120% 78% at 50% 0%, ${glow}2e, transparent 62%), linear-gradient(180deg, ${top}, ${base})`,
         borderBottom: `1px solid ${accent}55`,
@@ -51,14 +60,14 @@ export function BrandPanel({
       {...props}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={markSrc} alt={org} width={120} height={120} className="shrink-0" />
+      <img src={markSrc} alt={org} width={s.crest} height={s.crest} className="shrink-0" />
       <p
-        className="mt-2 text-[40px] font-bold leading-none tracking-tight"
+        className={cn("mt-2 font-bold leading-none tracking-tight", s.product)}
         style={{ color: productColor }}
       >
         {product}
       </p>
-      <p className="mt-2 text-[10px] tracking-wide" style={{ color: bylineColor }}>
+      <p className={cn("mt-2 tracking-wide", s.byline)} style={{ color: bylineColor }}>
         Brought to you by: {org}
       </p>
     </div>
