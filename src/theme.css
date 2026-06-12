@@ -1,0 +1,12 @@
+/* GGE Tailwind v4 theme — apps `@import "@ggeqs/ui/theme.css";` in their global
+   CSS to get bg-gge-green / text-gge-gold / border-gge-border etc. */
+@theme {
+  --color-gge-green: #1A2E1A;
+  --color-gge-gold: #C9A84C;
+  --color-gge-cream: #F5F0E8;
+  --color-gge-sage: #3D5C3D;
+  --color-gge-stone: #8A8478;
+  --color-gge-border: #E2DBD0;
+  --color-gge-border-strong: #C8BFB0;
+  --color-gge-gold-light: #F0E4C0;
+}
