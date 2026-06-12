@@ -13,6 +13,8 @@ export interface FooterProps extends React.HTMLAttributes<HTMLElement> {
   org?: string;
   year?: number;
   links?: FooterLink[];
+  color?: string; // text color — pass the product color (Cortex green / Paddock
+  // wine), readable on the light content area. Links inherit it.
 }
 
 const DEFAULT_LINKS: FooterLink[] = [
@@ -24,7 +26,9 @@ export function Footer({
   org = "Golden Gate Equestrian",
   year,
   links = DEFAULT_LINKS,
+  color,
   className,
+  style,
   ...props
 }: FooterProps) {
   const y = year ?? new Date().getFullYear();
@@ -33,9 +37,11 @@ export function Footer({
       className={cn(
         "w-full border-t border-gge-border bg-transparent px-6 py-4",
         "flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between",
-        "text-xs text-gge-stone",
+        "text-xs",
+        !color && "text-gge-stone",
         className,
       )}
+      style={color ? { color, ...style } : style}
       {...props}
     >
       <p>

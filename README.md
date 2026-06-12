@@ -11,8 +11,9 @@ Decision: **Approach A** — standalone repo consumed as a **git dependency**
 - `tokens` — `GGE` brand constants (green `#1A2E1A`, gold `#C9A84C`, cream, …) for inline styles.
 - `theme.css` — Tailwind v4 `@theme` exposing the same as `--color-gge-*` (→ `bg-gge-green`, `text-gge-gold`, …).
 - `Button`, `Badge`, `cn` — shared primitives. (Grow as real duplication appears.)
-- `BrandLockup` — logo + product name as one lockup (brand color via prop: Cortex green / Paddock wine).
-- `Footer` — shared GGE footer (© + Privacy/Terms placeholder links); same in Cortex and Paddock.
+- `BrandLockup` — logo + product name as one inline lockup (login/landing headers).
+- `BrandPanel` — the shared embossed rail header (crest · product wordmark · byline), identical across consoles, parameterized by `base` color (green / wine).
+- `Footer` — shared GGE footer (© + Privacy/Terms placeholder); `color` prop = product color (Cortex green / Paddock wine).
 
 ## Consume it (Cortex / Paddock — both Tailwind v4, Next 16)
 1. **Add the dep** (pinned SHA):
