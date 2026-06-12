@@ -2,14 +2,16 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "./lib/cn";
 
-// GGE Button. `default` = gold primary (the GGE accent). Source-shipped — the
-// consuming app transpiles it (next: transpilePackages: ["@ggeqs/ui"]).
+// GGE Button. `default` = the app's brand primary, theme-driven via --primary
+// (Cortex console = gold, Paddock = wine) — NOT hardcoded, so one Button serves
+// both consoles. Source-shipped — the consuming app transpiles it
+// (next: transpilePackages: ["@ggeqs/ui"]).
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center rounded-lg text-sm font-medium whitespace-nowrap transition-colors outline-none focus-visible:ring-2 focus-visible:ring-gge-gold/50 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex shrink-0 items-center justify-center rounded-lg text-sm font-medium whitespace-nowrap transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-gge-gold text-gge-green hover:bg-gge-gold/85",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
         outline: "border border-gge-border bg-transparent hover:bg-gge-cream/60",
         ghost: "hover:bg-gge-cream/60",
         destructive: "bg-red-600/10 text-red-700 hover:bg-red-600/20",
