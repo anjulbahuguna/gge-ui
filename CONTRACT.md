@@ -31,7 +31,7 @@ FontSizeControl } from "@ggeqs/ui"` · `@ggeqs/ui/theme.css` · `@ggeqs/ui/token
 
 ### Detail/edit layout primitives (T3, June 12 — additive)
 The shared detail/edit page model (Paddock uses now; Cortex adopts on refactor):
-- **`DetailHeader`** — composes `Breadcrumbs` + `Avatar` + title (`font-display`) + status slot + at-a-glance slot.
+- **`DetailHeader`** — composes `Breadcrumbs` + `Avatar` + title (`font-display`) + status slot + **`actions` slot** (page-level buttons) + at-a-glance slot. **Title color default = `text-foreground`** (the standard heading color — Cortex needs no override); pass **`titleClassName`** (e.g. `text-primary`) for a brand-tinted title. *(June 12: default changed from `text-primary` — re-pinning consumers get foreground titles unless they pass `titleClassName`.)*
 - **`EditableSection`** — read↔edit-in-place section card. `action` = a server action `(prev, FormData) => { error? }` (revalidate/redirect on success); `editFields` = the form; non-editable sections omit `action` + pass `headerAction`.
 - **`FieldGrid` + `ReadField`** — read-mode label/value grid.
 - **`FormField`** — labeled edit field; `as="input"|"select"|"combobox"`, **option lists passed in as props** (`items` / `suggestions`) — **no data fetching in the package** (the app fetches seeded `app_settings` etc.).
