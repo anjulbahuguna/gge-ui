@@ -35,3 +35,4 @@ export { DetailHeader } from "./detail-header";
 export { PageShell } from "./page-shell";
 export { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "./table";
 export { AccountBar, type AccountBarProps } from "./account-bar";
+export { Rail, NavSection, NavLink, type RailProps, type NavLinkProps } from "./rail";

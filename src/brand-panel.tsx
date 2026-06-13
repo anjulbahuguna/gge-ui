@@ -26,7 +26,8 @@ export interface BrandPanelProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const SIZES = {
-  rail: { crest: 120, product: "text-[40px]", byline: "text-[10px]", pad: "px-5 pb-6 pt-7" },
+  // rail ~10% shorter (June 13): crest 120→104, product 40→36px, padding trimmed
+  rail: { crest: 104, product: "text-[36px]", byline: "text-[10px]", pad: "px-5 pb-4 pt-5" },
   hero: { crest: 184, product: "text-[64px]", byline: "text-xs", pad: "px-8 pb-10 pt-11" },
 } as const;
 
@@ -67,8 +68,10 @@ export function BrandPanel({
       >
         {product}
       </p>
-      <p className={cn("mt-2 tracking-wide", s.byline)} style={{ color: bylineColor }}>
-        Brought to you by: {org}
+      <p className={cn("mt-2 tracking-wide leading-tight", s.byline)} style={{ color: bylineColor }}>
+        Brought to you by:
+        <br />
+        <span className="font-bold">{org}, LLC</span>
       </p>
     </div>
   );
