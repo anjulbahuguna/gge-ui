@@ -13,6 +13,7 @@ export {
 } from "./card";
 export { Input } from "./input";
 export { Label } from "./label";
+export { Breadcrumbs, type Crumb, type BreadcrumbsProps } from "./breadcrumb";
 export { BrandLockup, type BrandLockupProps } from "./brand-lockup";
 export { BrandPanel, type BrandPanelProps } from "./brand-panel";
 export { Footer, type FooterProps, type FooterLink } from "./footer";

@@ -17,14 +17,17 @@ This contract governs how we evolve it without breaking each other.
 
 ## Export API (v0.0.1) — additive-safe
 `import { GGE, cn, Button, buttonVariants, Badge, Card, CardHeader, CardFooter,
-CardTitle, CardAction, CardDescription, CardContent, Input, Label, BrandLockup,
-BrandPanel, Footer, FontScaleProvider, useFontScale, FontSizeControl } from
-"@ggeqs/ui"` · `@ggeqs/ui/theme.css` · `@ggeqs/ui/tokens`.
+CardTitle, CardAction, CardDescription, CardContent, Input, Label, Breadcrumbs,
+BrandLockup, BrandPanel, Footer, FontScaleProvider, useFontScale,
+FontSizeControl } from "@ggeqs/ui"` · `@ggeqs/ui/theme.css` · `@ggeqs/ui/tokens`.
 - **Additive** (new exports/components/tokens) = safe, just announce the SHA.
 - **Rename/remove/signature change** = breaking → coordinate + version bump.
 - `Button/Card/Input/Label` are the **canonical shadcn primitives** — promoted
   from Cortex (full shadcn surface: `Button` supports `asChild` + all
   variants/sizes). Don't keep app-local forks; import from here.
+- `Breadcrumbs` is the **canonical back-nav / wayfinding** element (`items:
+  {label, href?}[]`, server-safe via `next/link`). **`DetailHeader` composes
+  it — do NOT build a second breadcrumb.** Adds `next` as a peerDependency.
 
 ## Theme & typography (shipped by `@ggeqs/ui/theme.css`)
 - `theme.css` ships the **shadcn base theme** (`--background/--card/--primary/
@@ -37,6 +40,12 @@ BrandPanel, Footer, FontScaleProvider, useFontScale, FontSizeControl } from
   Geist via `next/font` (build-time optimized) and sets `--font-sans` on
   `<html>`; the theme value is the documented family + fallback. Changing the
   GGE font happens **here**.
+- **Title font — `--font-display`** (→ the `font-display` utility): the
+  section/detail title face used by the title components (`DetailHeader`,
+  `SectionHeader`). **Defaults to the sans stack** (`var(--font-sans)`), so the
+  Cortex console needs **no override**. Paddock overrides `--font-display` to
+  its **serif** via `next/font` (same `<html>` pattern as `--font-sans`). T1
+  owns the token + default.
 
 ## Ownership
 - **T1 (Cortex):** `tokens.ts` + `theme.css` — the **GGE brand**, source of truth.

@@ -18,6 +18,12 @@
      agreed family + fallbacks so "what font" lives in one place. */
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
+
+  /* Section/detail title font — title components use the `font-display`
+     utility. Defaults to the sans stack, so the Cortex console needs NO
+     override; Paddock overrides --font-display to its serif via next/font
+     (same pattern as --font-sans). Changing the GGE title font happens here. */
+  --font-display: var(--font-sans);
 }
 
 /* shadcn base theme — bind CSS variables to Tailwind utility classes. Shared so
