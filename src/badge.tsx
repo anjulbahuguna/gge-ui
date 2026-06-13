@@ -1,7 +1,9 @@
 import * as React from "react";
 import { cn } from "./lib/cn";
 
-// Status badge — shared tones for entity statuses across both consoles.
+// Status badge — the ONE shared status chip across both consoles (the former
+// Paddock `Pill` reconciles into this). Tones are semantic surfaces; pass
+// `dot` for a leading status dot (the warm "● Healthy" treatment).
 const TONES: Record<string, string> = {
   green: "bg-green-100 text-green-900 dark:bg-green-900/30 dark:text-green-300",
   amber: "bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-300",
@@ -13,7 +15,25 @@ const TONES: Record<string, string> = {
   gold: "bg-gge-gold text-gge-green",
 };
 
-export function Badge({ tone = "neutral", className, ...props }:
-  React.HTMLAttributes<HTMLSpanElement> & { tone?: keyof typeof TONES }) {
-  return <span className={cn("inline-flex items-center rounded px-2 py-0.5 text-xs", TONES[tone], className)} {...props} />;
+export function Badge({
+  tone = "neutral",
+  dot = false,
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement> & { tone?: keyof typeof TONES; dot?: boolean }) {
+  return (
+    <span
+      data-slot="badge"
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium",
+        TONES[tone],
+        className,
+      )}
+      {...props}
+    >
+      {dot && <span aria-hidden className="size-1.5 rounded-full bg-current" />}
+      {children}
+    </span>
+  );
 }

@@ -19,3 +19,13 @@ export { BrandPanel, type BrandPanelProps } from "./brand-panel";
 export { Footer, type FooterProps, type FooterLink } from "./footer";
 
 export { FontScaleProvider, useFontScale, FontSizeControl } from "./font-scale";
+
+// Layout / detail-edit primitives (T3, June 12) — the shared detail/edit model.
+export { Avatar } from "./avatar";
+export { SectionHeader } from "./section-header";
+export { ListCard, ListRow, type ListRowProps } from "./list-row";
+export { FieldGrid, ReadField } from "./field-grid";
+export { FormField, type FormFieldProps } from "./form-field";
+export { PlaceholderSection } from "./placeholder-section";
+export { EditableSection, type EditableSectionState } from "./editable-section";
+export { DetailHeader } from "./detail-header";

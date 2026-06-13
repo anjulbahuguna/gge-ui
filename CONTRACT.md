@@ -29,6 +29,17 @@ FontSizeControl } from "@ggeqs/ui"` · `@ggeqs/ui/theme.css` · `@ggeqs/ui/token
   {label, href?}[]`, server-safe via `next/link`). **`DetailHeader` composes
   it — do NOT build a second breadcrumb.** Adds `next` as a peerDependency.
 
+### Detail/edit layout primitives (T3, June 12 — additive)
+The shared detail/edit page model (Paddock uses now; Cortex adopts on refactor):
+- **`DetailHeader`** — composes `Breadcrumbs` + `Avatar` + title (`font-display`) + status slot + at-a-glance slot.
+- **`EditableSection`** — read↔edit-in-place section card. `action` = a server action `(prev, FormData) => { error? }` (revalidate/redirect on success); `editFields` = the form; non-editable sections omit `action` + pass `headerAction`.
+- **`FieldGrid` + `ReadField`** — read-mode label/value grid.
+- **`FormField`** — labeled edit field; `as="input"|"select"|"combobox"`, **option lists passed in as props** (`items` / `suggestions`) — **no data fetching in the package** (the app fetches seeded `app_settings` etc.).
+- **`PlaceholderSection`** — "coming soon" section.
+- **`Avatar`, `SectionHeader` (uses `font-display`), `ListCard`/`ListRow`** — promoted from Paddock-local; token-driven. **Don't keep app-local forks.**
+- **`Badge` gained `dot`** — the former Paddock `Pill` reconciles INTO `Badge` (one status chip; `<Badge tone dot>`). Shape is now `rounded-full` + a leading dot option — Cortex picks this up cosmetically on its next re-pin.
+- All token-driven (`--primary`, `--font-display`, surface/border tokens); warmth lives in each app's **token values**, not the components.
+
 ## Theme & typography (shipped by `@ggeqs/ui/theme.css`)
 - `theme.css` ships the **shadcn base theme** (`--background/--card/--primary/
   --border/--radius/…` in `:root` + `.dark`, bound to utilities via `@theme
