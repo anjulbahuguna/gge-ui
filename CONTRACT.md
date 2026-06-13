@@ -40,6 +40,11 @@ The shared detail/edit page model (Paddock uses now; Cortex adopts on refactor):
 - **`Badge` gained `dot`** — the former Paddock `Pill` reconciles INTO `Badge` (one status chip; `<Badge tone dot>`). Shape is `rounded` (OQ-1 Cortex reference); **`dot` is opt-in, OFF by default**.
 - All token-driven (`--primary`, `--font-display`, surface/border tokens); warmth lives in each app's **token values**, not the components.
 
+### Content shell + table (T1, June 13 — additive)
+The **container + the list** — the two parts that were still left to each app, where divergence crept in (page background → Cortex white vs Paddock cream; table markup re-rolled per app). Defined once so apps own neither:
+- **`PageShell`** — the anatomy ④ container: neutral `bg-background` + `min-h-screen` + centered `max-w-6xl` column + `p-8` + `space-y-6`. Apps wrap each page in it → **no app owns its content background** (an app can't render cream content — it doesn't set the surface). Brand only via the rail; content is always neutral.
+- **`Table` / `TableHeader` / `TableBody` / `TableRow` / `TableHead` / `TableCell`** — the canonical roster table (OQ-1: lists = tables, Cortex reference; promoted now that **both** consoles need it). Wrapper = `rounded-lg`+border; header `bg-muted/50`; rows hover + divide; composed cell-by-cell. Replaces app-local table markup.
+
 ### OQ-1 content-layer convergence (resolved 2026-06-13 — see `OPEN_QUESTIONS.md`)
 The content components' default look = the **Cortex reference**: `Card` shell `rounded-lg` + `border`; `Badge` `rounded` (dot off); `SectionHeader` neutral `text-foreground`/`font-medium`/sans (tint via `className` only); `ListCard`/`EditableSection`/`PlaceholderSection` shells `rounded-lg` + `border`; roster lists are **tables** (app-local markup, not a shared `Table`); column `max-w-6xl`/`p-8`. Interactive accents (links/actions, e.g. the `EditableSection` "Edit") keep `--primary`. `Avatar` unchanged. Cortex re-pins to adopt these (its shadcn form cards converge to `rounded-lg` + `border` = the intended consistency fix).
 
@@ -62,12 +67,14 @@ The content components' default look = the **Cortex reference**: `Card` shell `r
   `<html>` pattern as `--font-sans`). T1 owns the token + default. See
   `SCREEN_ANATOMY.md`.
 
-## Ownership
-- **T1 (Cortex):** `tokens.ts` + `theme.css` — the **GGE brand**, source of truth.
-  Token value changes go through T1.
-- **T3 (Paddock):** package **structure + component API**. Either terminal may add
-  components; coordinate on **shared primitives** (`Button`, `Badge`) so they stay
-  consistent across both consoles.
+## Ownership (clarified by Anjul, June 13)
+**T1 defines the UI components + the framework** — the shared element set, how
+they compose (the screen anatomy), and `tokens.ts` + `theme.css` (the GGE brand).
+**Apps choose only three things: their color (`--primary` + the rail) · which
+components to use · the content.** Apps do **not** define UI elements or own page
+surfaces — which is precisely why divergence has no room (no app owns a content
+background or re-rolls table markup; it composes the shared shell + table). New
+shared elements / structure go through **T1**; either terminal may flag a need.
 
 ## Consumption (both apps: Tailwind v4 / Next 16) — see README
 `transpilePackages: ["@ggeqs/ui"]` + `@import "@ggeqs/ui/theme.css"` +

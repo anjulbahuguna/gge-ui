@@ -62,3 +62,17 @@ the canonical reference. The single content-layer reference:
 - **T1 (tokens):** the reference maps to existing tokens (`--radius` lg, `border`,
   `--font-display` already sans) — no new tokens needed. Cortex = the reference,
   unchanged; re-pins to adopt the converged shared components for dedup over time.
+
+**Follow-up (June 13) — fix the remaining divergence at the SOURCE, not per-screen.**
+After the component convergence, Paddock still read warm. Audit: the leftover
+warmth was **app-level** (page background still cream; stray `font-serif` in
+screens) — *not* in any shared component, because **the container + the list were
+still left to each app**. Treating that per-screen is whack-a-mole. The fix is to
+**define those as common elements** (T1):
+- **`PageShell`** (the ④ container) + **`Table`** primitives shipped in `@ggeqs/ui`
+  `5848b6f`. Apps now compose them → **no app owns a content background or table
+  markup**, so cream/list-drift can't recur.
+- **Ownership (Anjul):** *T1 defines the UI components + framework; apps choose only
+  color (`--primary`/rail) + which components + content.* See `CONTRACT.md`.
+- App task: compose `PageShell` (drop per-page `bg-*` wrappers) + `Table` for
+  rosters; the surface/serif then come from the shared elements, not the screen.
