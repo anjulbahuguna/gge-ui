@@ -4,7 +4,7 @@ The shared framework is complete — see **`CONTRACT.md`** (component APIs) and
 **`SCREEN_ANATOMY.md`** (the 6-part layout). This is the per-app **adoption
 status + the migration order**, so the handoff lives in a doc, not a chat.
 
-**Latest SHA: `d0d54cd`.** Ownership (CONTRACT): T1 defines the components +
+**Latest SHA: `ee93b86`.** Ownership (CONTRACT): T1 defines the components +
 framework; apps choose only color (`--primary`/rail) + which components + content.
 
 ## What's newly available (June 13, 2026)
@@ -13,6 +13,7 @@ The framework parts apps were still rolling themselves are now shared:
 - **`AccountBar`** (⑥) — `Welcome <name>` + Sign Out. **Sign Out moved OUT of the rail.**
 - **`PageShell`** (④ container) + **`Table`** (rosters) — kills cream-bg / list-drift **at the source** (no app owns a content background or table markup).
 - **`StatStrip` · `Segmented` · `EmptyState` · `Pagination` · `FormActions`** — content-kit fillers (OQ-2 + audit #3).
+- **`ErrorState` · `DateField` · `ConfirmDialog` · `ToastProvider`/`useToast`** — error panel · date input · destructive-confirm modal (radix) · action-feedback toasts (the patterns proven in both apps / the toast gap both had).
 - **`BrandPanel`** — rail box −10% height + bold 2-line byline ("Brought to you by: / Golden Gate Equestrian, LLC").
 
 ## Cortex (T1) — status
