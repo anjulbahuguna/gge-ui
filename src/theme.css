@@ -20,9 +20,10 @@
     Roboto, Helvetica, Arial, sans-serif;
 
   /* Section/detail title font — title components use the `font-display`
-     utility. Defaults to the sans stack, so the Cortex console needs NO
-     override; Paddock overrides --font-display to its serif via next/font
-     (same pattern as --font-sans). Changing the GGE title font happens here. */
+     utility. Defaults to the sans stack; both consoles currently use sans
+     (Paddock went neutral/sans for content). The hook stays available if a
+     product ever wants a serif title (override --font-display per app, same
+     pattern as --font-sans). Changing the GGE title font happens here. */
   --font-display: var(--font-sans);
 }
 

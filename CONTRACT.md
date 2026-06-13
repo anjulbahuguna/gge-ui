@@ -53,10 +53,11 @@ The shared detail/edit page model (Paddock uses now; Cortex adopts on refactor):
   GGE font happens **here**.
 - **Title font — `--font-display`** (→ the `font-display` utility): the
   section/detail title face used by the title components (`DetailHeader`,
-  `SectionHeader`). **Defaults to the sans stack** (`var(--font-sans)`), so the
-  Cortex console needs **no override**. Paddock overrides `--font-display` to
-  its **serif** via `next/font` (same `<html>` pattern as `--font-sans`). T1
-  owns the token + default.
+  `SectionHeader`). **Defaults to the sans stack** (`var(--font-sans)`); **both
+  consoles use sans today** (Paddock's content went neutral/sans). The hook
+  stays available if a product ever wants a serif title (override per app, same
+  `<html>` pattern as `--font-sans`). T1 owns the token + default. See
+  `SCREEN_ANATOMY.md`.
 
 ## Ownership
 - **T1 (Cortex):** `tokens.ts` + `theme.css` — the **GGE brand**, source of truth.
