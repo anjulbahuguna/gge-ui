@@ -21,7 +21,8 @@ This contract governs how we evolve it without breaking each other.
 - **Primitives:** `Button`, `buttonVariants`, `Badge`, `Card` (+ `CardHeader/Footer/Title/Action/Description/Content`), `Input`, `Label`
 - **Wayfinding/chrome:** `Breadcrumbs`, `BrandLockup`, `BrandPanel`, `Footer`, `FontScaleProvider`/`useFontScale`/`FontSizeControl`
 - **Layout / framework:** **`Rail`** (② — + `NavSection`/`NavLink`) · `AccountBar` (⑥) · `DetailHeader` (③) · **`PageShell`** (④ container) · **`Table`** (+ `TableHeader/Body/Row/Head/Cell`)
-- **Content kit:** `EditableSection`, `FieldGrid`/`ReadField`, `FormField`, `FormActions` (save/cancel row), `PlaceholderSection`, `SectionHeader`, `Avatar`, **`StatStrip`** (metric-chip rollup), **`Segmented`** (view switcher), **`EmptyState`**, **`Pagination`** (link-based, `hrefFor`), `ListCard`/`ListRow` *(legacy — rosters use `Table`)*
+- **Content kit:** `EditableSection`, `FieldGrid`/`ReadField`, `FormField`, `FormActions` (save/cancel row), `DateField`, `PlaceholderSection`, `SectionHeader`, `Avatar`, **`StatStrip`** (metric-chip rollup), **`Segmented`** (view switcher), **`EmptyState`** / **`ErrorState`**, **`Pagination`** (link-based, `hrefFor`), `ListCard`/`ListRow` *(legacy — rosters use `Table`)*
+- **Interaction:** **`ConfirmDialog`** (controlled destructive-confirm modal, radix-backed) · **`ToastProvider`** + **`useToast`** (lightweight action feedback — `toast({title, description?, tone})`, no external dep; wrap the app once)
 - **Additive** (new exports/components/tokens) = safe, just announce the SHA.
 - **Rename/remove/signature change** = breaking → coordinate + version bump.
 - `Button/Card/Input/Label` are the **canonical shadcn primitives** — promoted
