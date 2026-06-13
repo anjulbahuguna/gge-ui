@@ -20,7 +20,7 @@ This contract governs how we evolve it without breaking each other.
 - **Tokens/utils:** `GGE`, `cn`
 - **Primitives:** `Button`, `buttonVariants`, `Badge`, `Card` (+ `CardHeader/Footer/Title/Action/Description/Content`), `Input`, `Label`
 - **Wayfinding/chrome:** `Breadcrumbs`, `BrandLockup`, `BrandPanel`, `Footer`, `FontScaleProvider`/`useFontScale`/`FontSizeControl`
-- **Layout / framework:** `AccountBar` (⑥) · `DetailHeader` (③) · **`PageShell`** (④ container) · **`Table`** (+ `TableHeader/Body/Row/Head/Cell`)
+- **Layout / framework:** **`Rail`** (② — + `NavSection`/`NavLink`) · `AccountBar` (⑥) · `DetailHeader` (③) · **`PageShell`** (④ container) · **`Table`** (+ `TableHeader/Body/Row/Head/Cell`)
 - **Content kit:** `EditableSection`, `FieldGrid`/`ReadField`, `FormField`, `PlaceholderSection`, `SectionHeader`, `Avatar`, `ListCard`/`ListRow` *(legacy — rosters use `Table`)*
 - **Additive** (new exports/components/tokens) = safe, just announce the SHA.
 - **Rename/remove/signature change** = breaking → coordinate + version bump.
@@ -47,6 +47,20 @@ The **container + the list** — the two parts that were still left to each app,
 - **`PageShell`** — the anatomy ④ container: neutral `bg-background` + `min-h-screen` + centered `max-w-6xl` column + `p-8` + `space-y-6`. Apps wrap each page in it → **no app owns its content background** (an app can't render cream content — it doesn't set the surface). Brand only via the rail; content is always neutral.
 - **`Table` / `TableHeader` / `TableBody` / `TableRow` / `TableHead` / `TableCell`** — the canonical roster table (OQ-1: lists = tables, Cortex reference; promoted now that **both** consoles need it). Wrapper = `rounded-lg`+border; header `bg-muted/50`; rows hover + divide; composed cell-by-cell. Replaces app-local table markup.
 - **`AccountBar`** — a **new anatomy part**: the top-right account strip (`Welcome <name>` + Sign Out), the top band of the content column (`h-14`, matches the Footer). **Presentational** — the app passes `userName` (data) + `onSignOut` (action). **Sign Out lives HERE, not in the rail** — the rail keeps only the font control. Compose: `<AccountBar/>` then `<PageShell/>` then `<Footer/>` in the content column. Both consoles compose it; brand differs only via the rail/`--primary`.
+- **`Rail` / `NavSection` / `NavLink`** (②) — the shared rail shell. Composes `BrandPanel` + scrollable nav + a font-control footer (Sign Out is NOT here — it's `AccountBar`). The app passes only: `product` · `base` (rail color: green/wine) · `brandHref?` (brand → home link) · the nav (`NavSection`/`NavLink` children) · a **switcher as a conditional child** (e.g. multi-barn only). `NavLink` active = solid gold fill (treatment A); `active` is computed by the app (route match).
+
+  **Migrating an app's bespoke rail onto `Rail` (for T3 / Paddock):**
+  1. Re-pin `@ggeqs/ui` to `≥46d0021`.
+  2. Replace the bespoke `<aside>` rail with:
+     ```tsx
+     <Rail product="Paddock" base="#6E1A2E" brandHref={paddockHome}>
+       {multiBarn && <YourSwitcher />}            {/* switcher ONLY for multi-barn users */}
+       <NavSection>{items.map(i => <NavLink key={i.href} href={i.href} label={i.label} active={isActive(i.href)} />)}</NavSection>
+       <NavSection label="…">…</NavSection>
+     </Rail>
+     ```
+  3. Delete the app's local nav-link, the `BrandPanel`/footer rendering, and the `<aside>` — `Rail` provides them. Keep your route→`active` logic.
+  4. **Reference implementation:** Cortex `src/components/console/ConsoleSidebar.tsx` (commit `2c1fe4d`) — same migration, green base.
 
 ### OQ-1 content-layer convergence (resolved 2026-06-13 — see `OPEN_QUESTIONS.md`)
 The content components' default look = the **Cortex reference**: `Card` shell `rounded-lg` + `border`; `Badge` `rounded` (dot off); `SectionHeader` neutral `text-foreground`/`font-medium`/sans (tint via `className` only); `ListCard`/`EditableSection`/`PlaceholderSection` shells `rounded-lg` + `border`; roster lists are **tables** (app-local markup, not a shared `Table`); column `max-w-6xl`/`p-8`. Interactive accents (links/actions, e.g. the `EditableSection` "Edit") keep `--primary`. `Avatar` unchanged. Cortex re-pins to adopt these (its shadcn form cards converge to `rounded-lg` + `border` = the intended consistency fix).
