@@ -57,7 +57,7 @@ export function EditableSection({
       </div>
 
       {editing ? (
-        <form action={formAction} className="space-y-4 rounded-2xl bg-card p-4 ring-1 ring-border">
+        <form action={formAction} className="space-y-4 rounded-lg border bg-card p-4">
           {editFields}
           {state.error && <p className="text-sm text-destructive">{state.error}</p>}
           <div className="flex items-center gap-3">
@@ -74,7 +74,7 @@ export function EditableSection({
           </div>
         </form>
       ) : (
-        <div className="rounded-2xl bg-card p-4 ring-1 ring-border">{children}</div>
+        <div className="rounded-lg border bg-card p-4">{children}</div>
       )}
     </section>
   );

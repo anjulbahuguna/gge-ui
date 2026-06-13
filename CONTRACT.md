@@ -37,8 +37,11 @@ The shared detail/edit page model (Paddock uses now; Cortex adopts on refactor):
 - **`FormField`** — labeled edit field; `as="input"|"select"|"combobox"`, **option lists passed in as props** (`items` / `suggestions`) — **no data fetching in the package** (the app fetches seeded `app_settings` etc.).
 - **`PlaceholderSection`** — "coming soon" section.
 - **`Avatar`, `SectionHeader` (uses `font-display`), `ListCard`/`ListRow`** — promoted from Paddock-local; token-driven. **Don't keep app-local forks.**
-- **`Badge` gained `dot`** — the former Paddock `Pill` reconciles INTO `Badge` (one status chip; `<Badge tone dot>`). Shape is now `rounded-full` + a leading dot option — Cortex picks this up cosmetically on its next re-pin.
+- **`Badge` gained `dot`** — the former Paddock `Pill` reconciles INTO `Badge` (one status chip; `<Badge tone dot>`). Shape is `rounded` (OQ-1 Cortex reference); **`dot` is opt-in, OFF by default**.
 - All token-driven (`--primary`, `--font-display`, surface/border tokens); warmth lives in each app's **token values**, not the components.
+
+### OQ-1 content-layer convergence (resolved 2026-06-13 — see `OPEN_QUESTIONS.md`)
+The content components' default look = the **Cortex reference**: `Card` shell `rounded-lg` + `border`; `Badge` `rounded` (dot off); `SectionHeader` neutral `text-foreground`/`font-medium`/sans (tint via `className` only); `ListCard`/`EditableSection`/`PlaceholderSection` shells `rounded-lg` + `border`; roster lists are **tables** (app-local markup, not a shared `Table`); column `max-w-6xl`/`p-8`. Interactive accents (links/actions, e.g. the `EditableSection` "Edit") keep `--primary`. `Avatar` unchanged. Cortex re-pins to adopt these (its shadcn form cards converge to `rounded-lg` + `border` = the intended consistency fix).
 
 ## Theme & typography (shipped by `@ggeqs/ui/theme.css`)
 - `theme.css` ships the **shadcn base theme** (`--background/--card/--primary/

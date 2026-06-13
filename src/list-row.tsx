@@ -3,12 +3,14 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { cn } from "./lib/cn";
 
-// Rounded card that wraps a list of rows (hairline dividers between).
+// Card that wraps a list of rows (hairline dividers between). OQ-1 shell:
+// rounded-lg + border (Cortex reference). Roster lists use tables; this remains
+// for non-roster row lists (e.g. history sub-lists).
 export function ListCard({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       data-slot="list-card"
-      className={cn("overflow-hidden rounded-2xl bg-card ring-1 ring-border", className)}
+      className={cn("overflow-hidden rounded-lg border bg-card", className)}
       {...props}
     >
       <div className="divide-y divide-border/70">{children}</div>

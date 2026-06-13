@@ -2,8 +2,9 @@ import * as React from "react";
 import { cn } from "./lib/cn";
 
 // Status badge — the ONE shared status chip across both consoles (the former
-// Paddock `Pill` reconciles into this). Tones are semantic surfaces; pass
-// `dot` for a leading status dot (the warm "● Healthy" treatment).
+// Paddock `Pill` reconciles into this). Tones are semantic surfaces. Shape is
+// `rounded` (Cortex reference, OQ-1). `dot` is opt-in, OFF by default; pass it
+// for a leading status dot (the "● Healthy" treatment) where a product wants it.
 const TONES: Record<string, string> = {
   green: "bg-green-100 text-green-900 dark:bg-green-900/30 dark:text-green-300",
   amber: "bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-300",
@@ -26,7 +27,7 @@ export function Badge({
     <span
       data-slot="badge"
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium",
+        "inline-flex items-center gap-1.5 rounded px-2.5 py-0.5 text-xs font-medium",
         TONES[tone],
         className,
       )}

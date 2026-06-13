@@ -1,6 +1,6 @@
 {
   "name": "@ggeqs/ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Shared GGE design tokens + UI primitives for Cortex and Paddock consoles.",
   "private": false,
   "type": "module",

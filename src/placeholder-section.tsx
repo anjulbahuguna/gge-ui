@@ -19,7 +19,7 @@ export function PlaceholderSection({
         <SectionHeader>{title}</SectionHeader>
         <span className="text-xs uppercase tracking-wide text-muted-foreground">{note}</span>
       </div>
-      <div className="rounded-2xl border border-dashed border-border px-4 py-6 text-sm text-muted-foreground">
+      <div className="rounded-lg border border-dashed border-border px-4 py-6 text-sm text-muted-foreground">
         Nothing here yet.
       </div>
     </section>
