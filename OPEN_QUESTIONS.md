@@ -7,6 +7,32 @@ with a date and the resolution.
 
 ---
 
+## OQ-2 — Two content elements the Care Board needs · **OPEN** (raised 2026-06-13, T3)
+
+**Owners:** T1 (defines shared components) · T3 (flagged the need from the board-as-home)
+
+The Care Board (Paddock, shipped) composes two UI elements that aren't shared
+components yet — built ad-hoc from `Badge`/`Button` for now. They should be
+canonicalized so Cortex reuses them too (the board is the first consumer; both
+recur on any dashboard). Per `CONTRACT.md`: new shared elements go through T1;
+either terminal may flag the need — this is T3 flagging it.
+
+1. **`StatStrip`** — a horizontal rollup row of metric chips (the board's
+   `open` / `done` / `overdue` / `order-soon`). Proposed API:
+   `<StatStrip items={[{label, value, tone}]} />` (or a container + `Stat` items).
+   *Current ad-hoc:* a flex row of tone'd `Badge`s.
+2. **`Segmented`** — a segmented view switcher (the board's Today / By-horse /
+   By-assignee). Proposed API: `<Segmented options={[{value,label}]} value onChange />`
+   (client component). *Current ad-hoc:* a row of buttons toggling local state.
+
+**Ask:** T1 canonicalize these two (additive to `@ggeqs/ui`); T3 swaps the ad-hoc
+versions on the board once they land. **Neither blocks the board** — it shipped
+with the composed versions.
+
+**Status:** awaiting T1.
+
+---
+
 ## OQ-1 — Single common reference for the content layer · **RESOLVED** 2026-06-13 (Anjul, visual pick)
 
 **Owners:** T1 (brand/tokens) + T3 (component structure/API)
