@@ -15,11 +15,13 @@ This contract governs how we evolve it without breaking each other.
   pin when ready. Not forced lockstep — but a **breaking change must update both
   consumers together** (and bump `version` in `package.json`).
 
-## Export API (v0.0.1) — additive-safe
-`import { GGE, cn, Button, buttonVariants, Badge, Card, CardHeader, CardFooter,
-CardTitle, CardAction, CardDescription, CardContent, Input, Label, Breadcrumbs,
-BrandLockup, BrandPanel, Footer, FontScaleProvider, useFontScale,
-FontSizeControl } from "@ggeqs/ui"` · `@ggeqs/ui/theme.css` · `@ggeqs/ui/tokens`.
+## Export API (v0.1.0) — additive-safe
+**Canonical list = `src/index.ts`** (this prose mirrors it — if they drift, `index.ts` wins). Subpaths: `@ggeqs/ui/theme.css` · `@ggeqs/ui/tokens`.
+- **Tokens/utils:** `GGE`, `cn`
+- **Primitives:** `Button`, `buttonVariants`, `Badge`, `Card` (+ `CardHeader/Footer/Title/Action/Description/Content`), `Input`, `Label`
+- **Wayfinding/chrome:** `Breadcrumbs`, `BrandLockup`, `BrandPanel`, `Footer`, `FontScaleProvider`/`useFontScale`/`FontSizeControl`
+- **Layout / framework:** `AccountBar` (⑥) · `DetailHeader` (③) · **`PageShell`** (④ container) · **`Table`** (+ `TableHeader/Body/Row/Head/Cell`)
+- **Content kit:** `EditableSection`, `FieldGrid`/`ReadField`, `FormField`, `PlaceholderSection`, `SectionHeader`, `Avatar`, `ListCard`/`ListRow` *(legacy — rosters use `Table`)*
 - **Additive** (new exports/components/tokens) = safe, just announce the SHA.
 - **Rename/remove/signature change** = breaking → coordinate + version bump.
 - `Button/Card/Input/Label` are the **canonical shadcn primitives** — promoted
