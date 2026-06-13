@@ -29,3 +29,8 @@ export { FormField, type FormFieldProps } from "./form-field";
 export { PlaceholderSection } from "./placeholder-section";
 export { EditableSection, type EditableSectionState } from "./editable-section";
 export { DetailHeader } from "./detail-header";
+
+// Content shell (④) + roster table — the container + the list, defined once so
+// neither console owns its page surface or re-rolls table markup (T1, June 13).
+export { PageShell } from "./page-shell";
+export { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "./table";
