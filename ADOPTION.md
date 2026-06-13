@@ -4,8 +4,10 @@ The shared framework is complete — see **`CONTRACT.md`** (component APIs) and
 **`SCREEN_ANATOMY.md`** (the 6-part layout). This is the per-app **adoption
 status + the migration order**, so the handoff lives in a doc, not a chat.
 
-**Latest SHA: `ee93b86`.** Ownership (CONTRACT): T1 defines the components +
-framework; apps choose only color (`--primary`/rail) + which components + content.
+**Latest SHA to pin: `ece748d`** (component-complete; `ee93b86` is the last
+code-bearing commit, `ece748d` adds only this tracker). Ownership (CONTRACT): T1
+defines the components + framework; apps choose only color (`--primary`/rail) +
+which components + content.
 
 ## What's newly available (June 13, 2026)
 The framework parts apps were still rolling themselves are now shared:
@@ -17,8 +19,9 @@ The framework parts apps were still rolling themselves are now shared:
 - **`BrandPanel`** — rail box −10% height + bold 2-line byline ("Brought to you by: / Golden Gate Equestrian, LLC").
 
 ## Cortex (T1) — status
-- Pinned `46d0021`. **Rail migrated** (`ConsoleSidebar` → shared `Rail`, `2c1fe4d`). **Content convergence adopted** (cards `rounded-lg`+border, badges `rounded`). Breadcrumbs + `DetailHeader` on all console headers.
-- **TODO (T1):** swap the local `ConsoleTopBar` → shared `AccountBar`; adopt `PageShell` + `Table` on the bespoke list pages over time (per-screen refactor, not urgent — Cortex is the reference look already).
+- **Pinned `ece748d`** (was `46d0021`; bumped so all new elements are available). **Rail migrated** (`ConsoleSidebar` → shared `Rail`, `2c1fe4d`). **Content convergence adopted** (cards `rounded-lg`+border, badges `rounded`). Breadcrumbs + `DetailHeader` on all console headers.
+- **`AccountBar` adopted** (June 13): `ConsoleTopBar` is now a thin wrapper over the shared `<AccountBar userName onSignOut/>` — the app-local band markup is gone (text went from product-green → neutral `text-foreground`, the framework default). Build-verified against the installed `ece748d` source.
+- **TODO (T1):** adopt `PageShell` + `Table` on the bespoke list pages. *Note for T1/T3:* `PageShell` hardcodes `max-w-6xl`; Cortex has narrower form pages (`max-w-2xl`) — a width prop on `PageShell` is likely needed before a clean sweep (raise as an OQ when tackled). `ErrorState`/`ConfirmDialog`/`Toast`/`DateField` available to adopt where Cortex already has those patterns (not yet swapped).
 
 ## Paddock (T3) — migration order
 Re-pin `@ggeqs/ui ≥ d0d54cd`, then, in order (each additive; nothing blocks the Care Board — it shipped composed):
