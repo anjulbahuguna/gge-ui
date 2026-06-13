@@ -36,3 +36,5 @@ export { PageShell } from "./page-shell";
 export { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "./table";
 export { AccountBar, type AccountBarProps } from "./account-bar";
 export { Rail, NavSection, NavLink, type RailProps, type NavLinkProps } from "./rail";
+export { StatStrip, type Stat } from "./stat-strip";
+export { Segmented, type SegmentOption, type SegmentedProps } from "./segmented";

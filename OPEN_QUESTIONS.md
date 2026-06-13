@@ -7,7 +7,7 @@ with a date and the resolution.
 
 ---
 
-## OQ-2 — Two content elements the Care Board needs · **OPEN** (raised 2026-06-13, T3)
+## OQ-2 — Two content elements the Care Board needs · **RESOLVED** 2026-06-13 (T1 shipped)
 
 **Owners:** T1 (defines shared components) · T3 (flagged the need from the board-as-home)
 
@@ -29,7 +29,10 @@ either terminal may flag the need — this is T3 flagging it.
 versions on the board once they land. **Neither blocks the board** — it shipped
 with the composed versions.
 
-**Status:** awaiting T1.
+**Resolution (T1, shipped):** both canonicalized in `@ggeqs/ui`, additive, neutral, presentational:
+- **`StatStrip`** — `<StatStrip items={[{ label, value, tone? }]} />` (tone reuses the `Badge` semantic names; colors the value, neutral card otherwise).
+- **`Segmented`** — `<Segmented options={[{ value, label }]} value onChange />` (client; controlled; muted track + lifted active segment).
+T3: swap the board's ad-hoc Badge-row / button-row for these on the next re-pin. See `CONTRACT.md`.
 
 ---
 

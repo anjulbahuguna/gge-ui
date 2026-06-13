@@ -21,7 +21,7 @@ This contract governs how we evolve it without breaking each other.
 - **Primitives:** `Button`, `buttonVariants`, `Badge`, `Card` (+ `CardHeader/Footer/Title/Action/Description/Content`), `Input`, `Label`
 - **Wayfinding/chrome:** `Breadcrumbs`, `BrandLockup`, `BrandPanel`, `Footer`, `FontScaleProvider`/`useFontScale`/`FontSizeControl`
 - **Layout / framework:** **`Rail`** (② — + `NavSection`/`NavLink`) · `AccountBar` (⑥) · `DetailHeader` (③) · **`PageShell`** (④ container) · **`Table`** (+ `TableHeader/Body/Row/Head/Cell`)
-- **Content kit:** `EditableSection`, `FieldGrid`/`ReadField`, `FormField`, `PlaceholderSection`, `SectionHeader`, `Avatar`, `ListCard`/`ListRow` *(legacy — rosters use `Table`)*
+- **Content kit:** `EditableSection`, `FieldGrid`/`ReadField`, `FormField`, `PlaceholderSection`, `SectionHeader`, `Avatar`, **`StatStrip`** (metric-chip rollup), **`Segmented`** (view switcher), `ListCard`/`ListRow` *(legacy — rosters use `Table`)*
 - **Additive** (new exports/components/tokens) = safe, just announce the SHA.
 - **Rename/remove/signature change** = breaking → coordinate + version bump.
 - `Button/Card/Input/Label` are the **canonical shadcn primitives** — promoted
