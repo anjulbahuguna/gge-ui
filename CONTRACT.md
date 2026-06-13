@@ -16,10 +16,27 @@ This contract governs how we evolve it without breaking each other.
   consumers together** (and bump `version` in `package.json`).
 
 ## Export API (v0.0.1) — additive-safe
-`import { GGE, cn, Button, buttonVariants, Badge } from "@ggeqs/ui"` ·
-`@ggeqs/ui/theme.css` · `@ggeqs/ui/tokens`.
+`import { GGE, cn, Button, buttonVariants, Badge, Card, CardHeader, CardFooter,
+CardTitle, CardAction, CardDescription, CardContent, Input, Label, BrandLockup,
+BrandPanel, Footer, FontScaleProvider, useFontScale, FontSizeControl } from
+"@ggeqs/ui"` · `@ggeqs/ui/theme.css` · `@ggeqs/ui/tokens`.
 - **Additive** (new exports/components/tokens) = safe, just announce the SHA.
 - **Rename/remove/signature change** = breaking → coordinate + version bump.
+- `Button/Card/Input/Label` are the **canonical shadcn primitives** — promoted
+  from Cortex (full shadcn surface: `Button` supports `asChild` + all
+  variants/sizes). Don't keep app-local forks; import from here.
+
+## Theme & typography (shipped by `@ggeqs/ui/theme.css`)
+- `theme.css` ships the **shadcn base theme** (`--background/--card/--primary/
+  --border/--radius/…` in `:root` + `.dark`, bound to utilities via `@theme
+  inline`). Apps **override only their product specifics** — e.g. the Cortex
+  console scopes `--primary` to gold, Paddock to wine. Don't re-declare the base
+  in app CSS (it would drift).
+- **Typography:** the agreed UI font is **Geist**, exposed as `--font-sans` in
+  `theme.css` (single source of truth for "what font"). Each app still loads
+  Geist via `next/font` (build-time optimized) and sets `--font-sans` on
+  `<html>`; the theme value is the documented family + fallback. Changing the
+  GGE font happens **here**.
 
 ## Ownership
 - **T1 (Cortex):** `tokens.ts` + `theme.css` — the **GGE brand**, source of truth.
