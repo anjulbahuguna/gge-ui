@@ -34,3 +34,4 @@ export { DetailHeader } from "./detail-header";
 // neither console owns its page surface or re-rolls table markup (T1, June 13).
 export { PageShell } from "./page-shell";
 export { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "./table";
+export { AccountBar, type AccountBarProps } from "./account-bar";
