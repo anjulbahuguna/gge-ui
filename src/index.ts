@@ -45,3 +45,17 @@ export { Pagination, type PaginationProps } from "./pagination";
 export { DateField } from "./date-field";
 export { ConfirmDialog, type ConfirmDialogProps } from "./confirm-dialog";
 export { ToastProvider, useToast } from "./toast";
+
+// Care Board primitives (Paddock, reused by Cortex) — names-not-counts dashboard
+// card, fast dose/supply entry, slot + assignee + check-off controls.
+export { ExceptionCard, type ExceptionCardProps, type ExceptionItem } from "./exception-card";
+export {
+  SupplyTypeAhead,
+  type SupplyTypeAheadProps,
+  type Supply,
+} from "./supply-type-ahead";
+export { UnitDoseField, type UnitDoseFieldProps } from "./unit-dose-field";
+export { SlotChips, type SlotChipsProps, type Slot } from "./slot-chips";
+export { AssigneeControl, type AssigneeControlProps } from "./assignee-control";
+export { SupplyLevel, type SupplyLevelProps } from "./supply-level";
+export { Checkbox, type CheckboxProps } from "./checkbox";
