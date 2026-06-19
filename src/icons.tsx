@@ -49,12 +49,14 @@ function svg(paths: React.ReactNode): IconComp {
   return C;
 }
 
-// Horse — the signature entity (rail + every horse surface). v1 head-and-neck line.
+// Horse — the signature entity (rail + every horse surface). Real designed glyph
+// from Tabler Icons `horse` (MIT, https://tabler.io/icons) — stroke-style matches
+// lucide. This is THE shared horse: also exported standalone at assets/horse.svg
+// for the Canter iOS asset catalog, so web + iOS converge on one true horse.
 const Horse = svg(
   <>
-    <path d="M5 21c-.4-3.4.7-6.7 2.8-9.3l-1-.9c-.7-.6-.7-1.7-.1-2.4.6-.6 1.6-.7 2.3-.2l.6.4C10.6 7.2 11.8 6.4 13 6.2l1-2.6c.3-.7 1.3-.7 1.6 0l1 2.4c2.5.6 4.4 2.8 4.6 5.4.2 2.3-1.1 4.4-3.1 5.3" />
-    <path d="M16.1 16.7c.5.5.8 1.2.8 2 0 .6-.5 1.2-1.2 1.2" />
-    <path d="M11.6 11h.01" />
+    <path d="M7 10l-.85 8.507a1.357 1.357 0 0 0 1.35 1.493h.146a2 2 0 0 0 1.857 -1.257l.994 -2.486a2 2 0 0 1 1.857 -1.257h1.292a2 2 0 0 1 1.857 1.257l.994 2.486a2 2 0 0 0 1.857 1.257h.146a1.37 1.37 0 0 0 1.364 -1.494l-.864 -9.506h-8c0 -3 -3 -5 -6 -5l-3 6l2 2l3 -2" />
+    <path d="M22 14v-2a3 3 0 0 0 -3 -3" />
   </>,
 );
 // Hoof / farrier — a horseshoe with nail holes.
