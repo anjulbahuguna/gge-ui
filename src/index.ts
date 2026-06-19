@@ -16,6 +16,7 @@ export { Label } from "./label";
 export { Breadcrumbs, type Crumb, type BreadcrumbsProps } from "./breadcrumb";
 export { BrandLockup, type BrandLockupProps } from "./brand-lockup";
 export { BrandPanel, type BrandPanelProps } from "./brand-panel";
+export { InviteAccept, type InviteAcceptProps, type InviteAcceptState } from "./invite-accept";
 export { Footer, type FooterProps, type FooterLink } from "./footer";
 
 export { FontScaleProvider, useFontScale, FontSizeControl } from "./font-scale";
