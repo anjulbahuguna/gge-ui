@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-  Home, Award, Users, UsersRound, Contact, IdCard, Package, Boxes, ScrollText, Mail,
+  Home, Award, Users, UsersRound, Contact, IdCard, ShoppingBag, Boxes, ScrollText, Mail,
   BriefcaseMedical, CircleDollarSign, CircleUser, ListChecks, Clock, Calendar, CalendarClock,
   CalendarDays, Pin, Megaphone, MapPin, LayoutDashboard, Activity, PackageMinus, ClipboardPlus,
   Check, CheckCheck, UserCog, Truck, Gauge, Sunrise, Sun, Sunset, Moon, Repeat, Wheat, Pill,
@@ -91,7 +91,7 @@ export const Icon = {
   team: std(UsersRound),
   horse: std(Horse),               // custom — highest-priority gap
   horses: std(Horse),
-  vendors: std(Package),           // box, NOT bag (decided June 2026)
+  vendors: std(ShoppingBag),       // bag (Anjul, final June 18 — supersedes the earlier box)
   supplies: std(Boxes),
   owners: std(ScrollText),
   invites: std(Mail),
