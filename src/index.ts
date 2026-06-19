@@ -30,6 +30,10 @@ export { PlaceholderSection } from "./placeholder-section";
 export { EditableSection, type EditableSectionState } from "./editable-section";
 export { DetailHeader } from "./detail-header";
 
+// Shared icon system — ONE glyph per concept across apps. Reference Icon.<concept>,
+// never lucide directly. Custom horse/hoof/barn fill the gaps. (T1, June 18.)
+export { Icon, type IconName, type IconProps } from "./icons";
+
 // Content shell (④) + roster table — the container + the list, defined once so
 // neither console owns its page surface or re-rolls table markup (T1, June 13).
 export { PageShell, type PageShellMax } from "./page-shell";
