@@ -72,16 +72,17 @@ export interface NavLinkProps extends Omit<React.ComponentProps<typeof Link>, "h
   href: string;
   label: string;
   active?: boolean;
+  icon?: React.ReactNode;   // a shared <Icon.concept/> — never a raw lucide import
 }
 
-export function NavLink({ href, label, active, className, style, ...props }: NavLinkProps) {
+export function NavLink({ href, label, active, icon, className, style, ...props }: NavLinkProps) {
   const { base, accent } = React.useContext(RailCtx);
   return (
     <Link
       href={href}
       data-slot="nav-link"
       data-active={active || undefined}
-      className={cn("block rounded px-3 py-1.5 text-sm transition-colors", className)}
+      className={cn("flex items-center gap-2.5 rounded px-3 py-1.5 text-sm transition-colors", className)}
       style={
         active
           ? { background: accent, color: base, fontWeight: 600, ...style }
@@ -89,7 +90,8 @@ export function NavLink({ href, label, active, className, style, ...props }: Nav
       }
       {...props}
     >
-      {label}
+      {icon && <span className="shrink-0">{icon}</span>}
+      <span className="min-w-0 truncate">{label}</span>
     </Link>
   );
 }
