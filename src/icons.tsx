@@ -9,7 +9,7 @@ import {
   CircleCheck, TriangleAlert, HeartPulse, TrendingDown, CircleDot, Circle, CircleX, CircleAlert,
   Receipt, FileText, StickyNote, FileSignature, Lock, KeyRound, LogIn, LogOut, ShieldCheck, Tags,
   Settings, BookOpen, BadgeCheck, BarChart3, Palette, EyeOff, LayoutGrid, UserCheck, Building2,
-  Scale, Rows3, FileCheck, Upload, Info, Loader2, Copy,
+  Scale, Rows3, FileCheck, Upload, Info, Loader2, Copy, Star, Map,
 } from "lucide-react";
 
 // GGE shared icon system. ONE glyph per concept, everywhere — referenced as
@@ -84,6 +84,8 @@ export const Icon = {
   // Nav / entities
   home: std(Home),
   shows: std(Award),
+  showTeam: std(Star),             // show-team membership flag (iOS parity — T2)
+  courseMap: std(Map),             // course map for a show (iOS parity — T2)
   barn: std(Barn),                 // custom
   barns: std(Barn),
   riders: std(Users),
