@@ -16,7 +16,7 @@ import {
 // Icon.<concept> (never lucide directly), so the same concept can't drift between
 // screens or apps. The concept *names* are the cross-platform contract shared with
 // Canter iOS (SF Symbols there); web maps each concept to a lucide glyph or one of
-// the custom SVGs below. Source of truth for the vocabulary: canter3/docs/ICON_VOCABULARY.md.
+// the custom SVGs below. Source of truth for the vocabulary: gge-ui/ICON_VOCABULARY.md (this repo).
 
 export type IconProps = Omit<React.SVGProps<SVGSVGElement>, "ref"> & {
   size?: number;
