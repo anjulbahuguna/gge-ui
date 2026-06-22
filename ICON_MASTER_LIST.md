@@ -149,7 +149,6 @@ prescription). `—` = design fresh.
 | external | external link | | ✓ | | ExternalLink | — |
 | upload | upload a file | | ✓ | | Upload | — |
 | copy | copy | ✓ | | | Copy | — |
-| share | share | | | | Share *(new)* | — |
 | settings | settings | | | ✓ | Settings *(new)* | gearshape.fill |
 | celebrate | success / aha moment | | | ✓ | Sparkles *(new)* | sparkles |
 

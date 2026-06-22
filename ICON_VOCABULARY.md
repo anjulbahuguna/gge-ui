@@ -52,7 +52,6 @@ show the *same* glyph). This doc is the shared source of truth across the GGE ap
 | Show Team | roster "on show team" toggle | `star` (off) / `star.fill` (on) | `Icon.showTeam` (lucide `Star`) — web ✓ (added `d9c4dcb`) |
 | Course map | class course map (in notifications) | `map.fill` | `Icon.courseMap` (lucide `Map`) — web ✓ (added `d9c4dcb`) |
 | Settings | settings | `gearshape.fill` | `Icon.settings` (lucide `Settings`) |
-| Share | share | `square.and.arrow.up` | `Icon.share` (lucide `Share`) |
 | Celebrate | success / aha moment | `sparkles` | `Icon.celebrate` (lucide `Sparkles`) |
 | Branding | branding / theme | `paintpalette.fill` | `Icon.branding` (lucide `Palette`) |
 | Custom field | a column kept as a barn-defined field | `tag.fill` (T2 confirm) | `Icon.customField` (lucide `Tag`) |

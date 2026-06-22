@@ -10,7 +10,7 @@ import {
   Receipt, FileText, StickyNote, FileSignature, Lock, KeyRound, LogIn, LogOut, ShieldCheck, Tags,
   Settings, BookOpen, BadgeCheck, BarChart3, Palette, EyeOff, LayoutGrid, UserCheck, Building2,
   Scale, Rows3, FileCheck, Upload, Info, Loader2, Copy, Star, Map,
-  Share, Sparkles, Tag, Undo2, Table, List,
+  Sparkles, Tag, Undo2, Table, List,
 } from "lucide-react";
 
 // GGE shared icon system. ONE glyph per concept, everywhere — referenced as
@@ -155,7 +155,6 @@ export const Icon = {
   sort: std(ArrowUpDown),
   upload: std(Upload),
   copy: std(Copy),
-  share: std(Share),               // T2 parity
   settings: std(Settings),         // generic settings (distinct from appSettings, the Cortex admin page)
 
   // Data import (T3) — lucide placeholders; Claude Design set swaps in behind these names
