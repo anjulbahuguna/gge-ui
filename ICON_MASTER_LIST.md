@@ -49,7 +49,7 @@ prescription). `—` = design fresh.
 | profile / account | account | | | ✓ | CircleUser | person.crop.circle.fill |
 | checklist | tasks / checklist | | | ✓ | ListChecks | checklist |
 | schedule | class times | | | ✓ | Clock | clock |
-| calendar | calendar | | | | Calendar | — |
+| calendar | calendar | | | ✓ | Calendar | calendar |
 | bulletin | bulletin posts | | | ✓ | Pin (outline) | pin |
 | announce | broadcast | | | ✓ | Megaphone | megaphone.fill |
 | venue | location | | | ✓ | MapPin | mappin.and.ellipse |
@@ -58,11 +58,15 @@ prescription). `—` = design fresh.
 
 | Concept | Meaning | C | P | Can | Web today | iOS today |
 |---|---|:-:|:-:|:-:|---|---|
-| customField | a column kept as a barn-defined field | | ✓ | ✓ | Tag *(proposed)* | tag.fill *(confirm)* |
-| undo | reverse a committed import batch | | ✓ | ✓ | Undo2 *(proposed)* | arrow.uturn.backward *(confirm)* |
-| feedChart | feed/meds matrix shape (fork tile) | | ✓ | ✓ | Table *(proposed)* | tablecells.fill *(confirm)* |
-| list | flat-list shape (fork tile) | | ✓ | ✓ | List *(proposed)* | list.bullet *(confirm)* |
+| customField | a column kept as a barn-defined field | | ✓ | | Tag *(proposed)* | tag.fill ² |
+| undo | reverse a committed import batch | | ✓ | | Undo2 *(proposed)* | arrow.uturn.backward ² |
+| feedChart | feed/meds matrix shape (fork tile) | | ✓ | | Table *(proposed)* | tablecells.fill ² |
+| list | flat-list shape (fork tile) | | ✓ | | List *(proposed)* | list.bullet ² |
 | import | the import feature (nav + fork page) | | ✓ | | *(aliases `upload`)* | — |
+
+> ² **iOS symbols confirmed by T2** as the right SF Symbols for these concepts. **Can = blank**
+> because Canter has no import today (Paddock-web only) — they're not in `CanterIcon` yet; these
+> are the agreed iOS mappings for when/if Canter gains import.
 
 ## 3. Care board
 
@@ -74,7 +78,7 @@ prescription). `—` = design fresh.
 | supplyLow | supply running low | | | | PackageMinus | — |
 | dueNext | next due | | | | CalendarClock | — |
 | recordCare | record a care task | | ✓ | | ClipboardPlus | — |
-| checkOff | mark one done | | ✓ | | Check | — |
+| checkOff | mark one done | | ✓ | ✓ | Check | checkmark.circle.fill |
 | bundleDone | mark a group done | | | | CheckCheck | — |
 | assignee | who's assigned | | | | CircleUser | — |
 | reassign | reassign | | | | UserCog | — |
@@ -113,7 +117,7 @@ prescription). `—` = design fresh.
 | eligible | eligible | ✓ | | | CircleCheck | — |
 | notEligible | not eligible | | | | CircleX | — |
 | cantConfirm | can't confirm / unsure | | ✓ | | CircleAlert | — |
-| warning | warning | | | | TriangleAlert | — |
+| warning | warning | | | ✓ | TriangleAlert | exclamationmark.triangle |
 | info | info | | | | Info | — |
 | loading | loading | | | | Loader2 | — |
 
@@ -131,21 +135,21 @@ prescription). `—` = design fresh.
 
 | Concept | Meaning | C | P | Can | Web today | iOS today |
 |---|---|:-:|:-:|:-:|---|---|
-| add | add / new | | ✓ | | Plus | — |
-| edit | edit | | ✓ | | SquarePen | — |
-| delete | delete | | ✓ | | Trash2 | — |
+| add | add / new | | ✓ | ✓ | Plus | plus |
+| edit | edit | | ✓ | ✓ | SquarePen | pencil |
+| delete | delete | | ✓ | ✓ | Trash2 | trash |
 | save | save | | | | Save | — |
-| close / discard | close / dismiss | | ✓ | | X | — |
+| close / discard | close / dismiss | | ✓ | ✓ | X | xmark |
 | search | search | ✓ | | | Search | — |
 | filter | filter | | | | SlidersHorizontal | — |
 | sort | sort | | | | ArrowUpDown | — |
-| back | back | ✓ | | | ChevronLeft | — |
-| drillIn | drill into row | | | | ChevronRight | — |
-| overflow | more actions | | | | MoreHorizontal | — |
+| back | back | ✓ | | ✓ | ChevronLeft | chevron.left |
+| drillIn | drill into row | | | ✓ | ChevronRight | chevron.right |
+| overflow | more actions | | | ✓ | MoreHorizontal | ellipsis |
 | external | external link | | ✓ | | ExternalLink | — |
 | upload | upload a file | | ✓ | | Upload | — |
 | copy | copy | ✓ | | | Copy | — |
-| share | share | | | ✓ | Share *(new)* | square.and.arrow.up |
+| share | share | | | | Share *(new)* | — |
 | settings | settings | | | ✓ | Settings *(new)* | gearshape.fill |
 | celebrate | success / aha moment | | | ✓ | Sparkles *(new)* | sparkles |
 
@@ -153,10 +157,10 @@ prescription). `—` = design fresh.
 
 | Concept | Meaning | C | P | Can | Web today | iOS today |
 |---|---|:-:|:-:|:-:|---|---|
-| magicLink | magic-link sign-in | | | | Mail | — |
+| magicLink | magic-link sign-in | | | ✓ | Mail | envelope.badge |
 | password | password sign-in | | | | Lock | — |
 | signIn | sign in | | | | LogIn | — |
-| signOut | sign out | | | | LogOut | — |
+| signOut | sign out | | | ✓ | LogOut | rectangle.portrait.and.arrow.right |
 | key | credential / key | | | | KeyRound | — |
 
 ## 9. Cortex platform admin *(web)*
@@ -199,6 +203,22 @@ prescription). `—` = design fresh.
 | pinned | "this post is pinned" badge | ✓ | pin.fill (filled) |
 | notifications | bell + hub | ✓ | bell |
 | training | lessons & progress *(stub)* | ✓ | figure.equestrian.sports |
+| selected | selected / checkbox-on | ✓ | checkmark / checkmark.square.fill |
+| radio | single-select | ✓ | largecircle.fill.circle / circle |
+| verified | "all caught up" / ready seal | ✓ | checkmark.seal.fill |
+| expand | expand / collapse disclosure | ✓ | chevron.down / chevron.up |
+| timeTBD | time to be determined | ✓ | clock.badge.questionmark |
+| hidden | hidden checklist item | ✓ | eye.slash |
+| unpin | unpin a post | ✓ | pin.slash |
+| comingSoon | stub / placeholder | ✓ | hourglass |
+| photo | image / logo picker | ✓ | photo |
+| remove | remove from a list | ✓ | minus.circle |
+
+> **iOS style/state variants** (no separate glyph needed — same concept, filled/circle form):
+> add also uses `plus.circle`/`plus.circle.fill`; close uses `xmark.circle.fill`; checkOff uses
+> an outline `checkmark.circle`; warning uses a filled `exclamationmark.triangle.fill` + an
+> `exclamationmark.circle` alert; notifications uses `bell.badge`. The designer needs one glyph
+> per concept; iOS picks the fill/badge variant per context.
 
 ## 12. Brand assets
 
