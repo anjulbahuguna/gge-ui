@@ -1,5 +1,12 @@
 # GGE Icon Vocabulary
 
+> ✅ **Designer set implemented (web, `bc9d55c`).** `src/icons.tsx` now ships the finalized
+> GGE icon set — not the interim lucide placeholders. The authoritative **glyph-per-concept**
+> source is the design handoff: `Claude Design/design_handoff_gge_ui_kit/ICON_SPEC.md`
+> (exceptions: §A custom SVGs + §B collision fixes + §C resolutions) over `ICON_MASTER_LIST.md`.
+> 8 custom fill-SVGs live in `src/icons/custom.tsx`. Concept keys are unchanged → consumers
+> re-pin to adopt, no code change. iOS (`CanterIcon`) implements the same set per the handoff.
+
 **One icon per concept, everywhere.** Icons must not change between screens for the
 same thing (a list empty-state, a nav link, and a setup card for "Vendors" must all
 show the *same* glyph). This doc is the shared source of truth across the GGE apps.
