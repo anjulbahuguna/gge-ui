@@ -10,6 +10,7 @@ import {
   Receipt, FileText, StickyNote, FileSignature, Lock, KeyRound, LogIn, LogOut, ShieldCheck, Tags,
   Settings, BookOpen, BadgeCheck, BarChart3, Palette, EyeOff, LayoutGrid, UserCheck, Building2,
   Scale, Rows3, FileCheck, Upload, Info, Loader2, Copy, Star, Map,
+  Share, Sparkles, Tag, Undo2, Table, List,
 } from "lucide-react";
 
 // GGE shared icon system. ONE glyph per concept, everywhere — referenced as
@@ -154,6 +155,14 @@ export const Icon = {
   sort: std(ArrowUpDown),
   upload: std(Upload),
   copy: std(Copy),
+  share: std(Share),               // T2 parity
+  settings: std(Settings),         // generic settings (distinct from appSettings, the Cortex admin page)
+
+  // Data import (T3) — lucide placeholders; Claude Design set swaps in behind these names
+  customField: std(Tag),           // a column kept as a barn-defined field
+  undo: std(Undo2),                // reverse a committed import batch (distinct from delete)
+  feedChart: std(Table),           // feed/meds matrix shape (fork tile)
+  list: std(List),                 // flat-list shape (fork tile)
 
   // Status / health
   healthy: std(CircleCheck),
@@ -169,6 +178,7 @@ export const Icon = {
   warning: std(TriangleAlert),
   info: std(Info),
   loading: std(Loader2),
+  celebrate: std(Sparkles),        // success / aha moment (T2 parity)
 
   // Detail sections
   health: std(HeartPulse),

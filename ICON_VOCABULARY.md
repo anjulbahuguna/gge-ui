@@ -51,6 +51,26 @@ show the *same* glyph). This doc is the shared source of truth across the GGE ap
 | Points | USEF & circuit (stub) | `trophy.fill` | *(iOS-only)* |
 | Show Team | roster "on show team" toggle | `star` (off) / `star.fill` (on) | `Icon.showTeam` (lucide `Star`) — web ✓ (added `d9c4dcb`) |
 | Course map | class course map (in notifications) | `map.fill` | `Icon.courseMap` (lucide `Map`) — web ✓ (added `d9c4dcb`) |
+| Settings | settings | `gearshape.fill` | `Icon.settings` (lucide `Settings`) |
+| Share | share | `square.and.arrow.up` | `Icon.share` (lucide `Share`) |
+| Celebrate | success / aha moment | `sparkles` | `Icon.celebrate` (lucide `Sparkles`) |
+| Branding | branding / theme | `paintpalette.fill` | `Icon.branding` (lucide `Palette`) |
+| Custom field | a column kept as a barn-defined field | `tag.fill` (T2 confirm) | `Icon.customField` (lucide `Tag`) |
+| Undo | reverse a committed import batch | `arrow.uturn.backward` (T2 confirm) | `Icon.undo` (lucide `Undo2`) |
+| Feed chart | feed/meds matrix shape (import fork tile) | `tablecells.fill` (T2 confirm) | `Icon.feedChart` (lucide `Table`) |
+| List | flat-list shape (import fork tile) | `list.bullet` (T2 confirm) | `Icon.list` (lucide `List`) |
+
+> **Lucide glyphs are interim placeholders.** A unified set is being designed (see
+> `ICON_MASTER_LIST.md`); when it lands it swaps in behind these concept names with zero
+> app churn. `import` (the feature) intentionally **aliases `upload`** — no own glyph.
+
+> **System chrome (iOS-internal):** full UI chrome (back/close/chevrons/etc.) is owned per
+> app — iOS via `CanterIcon`, web via its own lucide chrome. Only the **concept names**
+> above are the shared contract; chrome glyphs are not.
+
+> **Brand assets — Canter app icon:** **GGE-baked** (one GGE-branded app icon, "Canter by
+> GGE"). Per-barn branding lives inside the app, not on the home-screen icon (iOS app icons
+> are fixed per build; per-barn would need alternate-icons + store review — out of scope).
 
 > **Show Team + Course map:** added to gge-ui `icons.tsx` in `d9c4dcb` — `Icon.showTeam`
 > (`Star`, the roster toggle #13) and `Icon.courseMap` (`Map`, the notification-row glyph).
