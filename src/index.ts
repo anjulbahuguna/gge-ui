@@ -27,6 +27,7 @@ export { SectionHeader } from "./section-header";
 export { ListCard, ListRow, type ListRowProps } from "./list-row";
 export { FieldGrid, ReadField } from "./field-grid";
 export { FormField, type FormFieldProps } from "./form-field";
+export { Select, type SelectProps } from "./select";
 export { PlaceholderSection } from "./placeholder-section";
 export { EditableSection, type EditableSectionState } from "./editable-section";
 export { DetailHeader } from "./detail-header";
