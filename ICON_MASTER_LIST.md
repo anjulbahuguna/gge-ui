@@ -33,10 +33,10 @@ prescription). `—` = design fresh.
 | shows | shows / classes | | | ✓ | Award | rosette |
 | showTeam | "on show team" toggle | | | ✓ | Star | star / star.fill |
 | courseMap | class course map | | | ✓ | Map | map.fill |
-| barn / barns | barn container | ✓ | | ✓ | Barn *(custom SVG)* | house.lodge.fill |
-| horse / horses | horse | | ✓ | ✓ | Horse *(custom SVG)* | figure.equestrian.sports ¹ |
-| riders | riders | | ✓ | ✓ | Users | person.2.fill |
-| roster | barn people | | ✓ | ✓ | UsersRound | person.2.fill |
+| barn / barns | barn container | ✓ | | ✓ | Barn *(custom SVG)* | domain.barn *(custom, shipped)* |
+| horse / horses | horse | | ✓ | ✓ | Horse *(custom SVG)* | domain.horse *(custom, shipped)* |
+| riders | riders | | ✓ | ✓ | Users | domain.rider *(custom, shipped)* |
+| roster | barn people | | ✓ | ✓ | UsersRound | domain.roster *(custom, shipped)* |
 | members | barn members | | | | Contact | — |
 | staff | staff & grooms | ✓ | ✓ | ✓ | IdCard | person.text.rectangle.fill |
 | team | team | | ✓ | | UsersRound | — |
@@ -48,7 +48,7 @@ prescription). `—` = design fresh.
 | pay | money owed | | | ✓ | CircleDollarSign | dollarsign.circle.fill |
 | profile / account | account | | | ✓ | CircleUser | person.crop.circle.fill |
 | checklist | tasks / checklist | | | ✓ | ListChecks | checklist |
-| schedule | class times | | | ✓ | Clock | clock |
+| schedule | class times | | | ✓ | CalendarClock | calendar.badge.clock *(§B; iOS `calendar` collides with the calendar concept)* |
 | calendar | calendar | | | ✓ | Calendar | calendar |
 | bulletin | bulletin posts | | | ✓ | Pin (outline) | pin |
 | announce | broadcast | | | ✓ | Megaphone | megaphone.fill |
