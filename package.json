@@ -4,18 +4,27 @@
   "description": "Shared GGE design tokens + UI primitives for Cortex and Paddock consoles.",
   "private": false,
   "type": "module",
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "exports": {
     ".": "./src/index.ts",
     "./theme.css": "./src/theme.css",
     "./tokens": "./src/tokens.ts"
   },
-  "peerDependencies": { "next": ">=15", "react": ">=18", "react-dom": ">=18" },
+  "peerDependencies": {
+    "next": ">=15",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.16.0",
     "radix-ui": "^1.4.3",
     "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.2"
   }
 }
