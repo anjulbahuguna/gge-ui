@@ -45,6 +45,12 @@ Use the semantic tokens (`text-primary`, `bg-muted`, `border-border`, `text-fore
 Tokens theme per-app (Cortex green, Paddock wine) and keep contrast correct; hardcoded
 palette colors break theming and drift off-brand.
 
+**Status colors** (success / warning / error / info) have dedicated **brand-independent**
+tokens — a success is green on every app. For a status chip, use `<Badge tone="success">`
+(also `warning` / `error` / `info` / `neutral`). For other status surfaces, use the tokens
+directly: `text-success` / `bg-success`, `text-warning`, `text-destructive` (error),
+`text-info`. Never `bg-green-100 text-green-900` — that's exactly what these replace.
+
 ## The guard + escape hatch
 
 `scripts/check-gge-ui.sh [targetDir]` (default `src`) fails CI on raw clickables and
