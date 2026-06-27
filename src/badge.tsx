@@ -2,18 +2,34 @@ import * as React from "react";
 import { cn } from "./lib/cn";
 
 // Status badge — the ONE shared status chip across both consoles (the former
-// Paddock `Pill` reconciles into this). Tones are semantic surfaces. Shape is
-// `rounded` (Cortex reference, OQ-1). `dot` is opt-in, OFF by default; pass it
-// for a leading status dot (the "● Healthy" treatment) where a product wants it.
+// Paddock `Pill` reconciles into this). Shape is `rounded` (Cortex reference, OQ-1).
+// `dot` is opt-in for the "● Healthy" treatment.
+//
+// Tones are SEMANTIC and token-backed (success/warning/error/info/neutral) — no
+// hardcoded palette. Status tokens are brand-independent (theme.css), so a success
+// is the same green on Cortex and Paddock. Prefer the semantic names; the literal
+// color names are kept as deprecated aliases so existing callers don't break.
+const SUCCESS = "bg-success/12 text-success dark:bg-success/20";
+const WARNING = "bg-warning/15 text-warning dark:bg-warning/20";
+const ERROR = "bg-destructive/12 text-destructive dark:bg-destructive/20";
+const INFO = "bg-info/12 text-info dark:bg-info/20";
+const NEUTRAL = "bg-muted text-muted-foreground";
+
 const TONES: Record<string, string> = {
-  green: "bg-green-100 text-green-900 dark:bg-green-900/30 dark:text-green-300",
-  amber: "bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-300",
-  red: "bg-red-100 text-red-900 dark:bg-red-900/30 dark:text-red-300",
-  orange: "bg-orange-100 text-orange-900 dark:bg-orange-900/30 dark:text-orange-300",
-  blue: "bg-blue-100 text-blue-900 dark:bg-blue-900/30 dark:text-blue-300",
-  purple: "bg-purple-100 text-purple-900 dark:bg-purple-900/30 dark:text-purple-300",
-  neutral: "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-300",
+  // semantic (preferred)
+  success: SUCCESS,
+  warning: WARNING,
+  error: ERROR,
+  info: INFO,
+  neutral: NEUTRAL,
   gold: "bg-gge-gold text-gge-green",
+  // deprecated color-name aliases → repointed to the semantic tokens (no palette)
+  green: SUCCESS,
+  amber: WARNING,
+  red: ERROR,
+  orange: WARNING,
+  blue: INFO,
+  purple: INFO,
 };
 
 export function Badge({
