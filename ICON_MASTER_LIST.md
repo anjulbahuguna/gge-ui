@@ -147,7 +147,7 @@ prescription). `—` = design fresh.
 | drillIn | drill into row | | | ✓ | ChevronRight | chevron.right |
 | overflow | more actions | | | ✓ | MoreHorizontal | ellipsis |
 | external | external link | | ✓ | | ExternalLink | — |
-| upload | upload a file | | ✓ | | Upload | — |
+| upload | upload a file | | ✓ | ✓ | Upload | arrow.up.doc.fill |
 | copy | copy | ✓ | | | Copy | — |
 | settings | settings | | | ✓ | Settings *(new)* | gearshape.fill |
 | celebrate | success / aha moment | | | ✓ | Sparkles *(new)* | sparkles |
