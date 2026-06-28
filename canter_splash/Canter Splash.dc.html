@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; -webkit-font-smoothing:antialiased; }
+  @keyframes cnt-shieldIn { from{opacity:0; transform:translateY(20px) scale(.92)} to{opacity:1; transform:none} }
+  @keyframes cnt-rise { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
+  @keyframes cnt-glow { 0%,100%{opacity:.4; transform:translate(-50%,-50%) scale(1)} 50%{opacity:.85; transform:translate(-50%,-50%) scale(1.1)} }
+  @keyframes cnt-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+  @keyframes cnt-sheen { 0%{transform:translateX(-160%) rotate(18deg)} 55%,100%{transform:translateX(260%) rotate(18deg)} }
+</style>
+</helmet>
+
+<!-- ============ OPTION A — ANCHORED ============ -->
+<div style="position:absolute; left:0; top:60px; width:390px;">
+  <div data-drags-parent="1" style="font:600 12px/1.4 ui-monospace,monospace; letter-spacing:.08em; color:#5b6b58; text-transform:uppercase; margin:0 0 12px 4px;">A · Anchored</div>
+  <div style="position:relative; width:390px; height:844px; background:#1a2e1a; border-radius:46px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.3); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:#f3efe4;">
+    <!-- status bar -->
+    <div style="position:absolute; top:0; left:0; right:0; height:54px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; z-index:5;">
+      <span style="font-weight:600; font-size:16px;">9:41</span>
+      <div style="display:flex; align-items:center; gap:7px;">
+        <div style="display:flex; align-items:flex-end; gap:2px; height:11px;"><span style="width:3px;height:4px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:6px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:8px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:11px;background:#f3efe4;border-radius:1px;"></span></div>
+        <div style="width:24px;height:12px;border:1.5px solid #f3efe4;border-radius:3px;position:relative;"><div style="position:absolute;inset:1.5px;background:#f3efe4;border-radius:1px;"></div><div style="position:absolute;right:-3px;top:3.5px;width:1.5px;height:5px;background:#f3efe4;border-radius:0 1px 1px 0;"></div></div>
+      </div>
+    </div>
+    <div style="position:absolute; top:14px; left:50%; transform:translateX(-50%); width:114px; height:32px; background:#000; border-radius:18px; z-index:6;"></div>
+
+    <!-- content -->
+    <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; padding:118px 34px 46px;">
+      <!-- shield -->
+      <div style="position:relative; animation:cnt-shieldIn .9s cubic-bezier(.22,1,.36,1) both;">
+        <div style="position:absolute; top:50%; left:50%; width:288px; height:288px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,.42), rgba(201,168,76,0) 68%); filter:blur(8px); animation:cnt-glow 4.5s ease-in-out infinite; z-index:0;"></div>
+        <div style="position:relative; width:197px; height:240px; z-index:1; animation:cnt-float 6s ease-in-out 1s infinite;">
+          <img src="canter-splash/shield-gold.png" alt="Canter crest" style="width:100%; height:100%; object-fit:contain; display:block; filter:drop-shadow(0 14px 22px rgba(0,0,0,.4));">
+          <div style="position:absolute; inset:0; overflow:hidden; -webkit-mask:url(canter-splash/shield-gold.png) center/contain no-repeat; mask:url(canter-splash/shield-gold.png) center/contain no-repeat; pointer-events:none;">
+            <div style="position:absolute; top:-40%; left:0; width:34%; height:180%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); filter:blur(5px); mix-blend-mode:overlay; animation:cnt-sheen 5.5s ease-in-out 1.4s infinite;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- wordmark -->
+      <h1 style="margin:34px 0 0; font-family:'Spectral',serif; font-weight:600; font-size:54px; letter-spacing:.01em; color:#f5f1e6; animation:cnt-rise .7s ease-out .3s both;">Canter</h1>
+      <div style="width:40px; height:1px; background:linear-gradient(90deg, transparent, #c9a84c, transparent); margin:18px 0 14px; animation:cnt-rise .7s ease-out .42s both;"></div>
+      <p style="margin:0; font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:#c9a84c; animation:cnt-rise .7s ease-out .5s both;">Your Ride to the Grand Prix</p>
+
+      <div style="flex:1;"></div>
+
+      <!-- greeting + CTA -->
+      <p style="margin:0 0 4px; font-size:15px; color:#a9b4a3; animation:cnt-rise .7s ease-out .62s both;">Welcome back,</p>
+      <p style="margin:0 0 40px; font-family:'Spectral',serif; font-size:30px; font-weight:500; color:#f5f1e6; animation:cnt-rise .7s ease-out .68s both;">Ayaan</p>
+      <button style="width:100%; height:56px; border:none; border-radius:16px; background:linear-gradient(180deg,#dcc06a,#c9a84c); color:#1a2e1a; font-size:17px; font-weight:600; letter-spacing:.01em; cursor:pointer; box-shadow:0 10px 24px rgba(201,168,76,.28); animation:cnt-rise .7s ease-out .76s both;">Let's Ride</button>
+      <div style="display:flex; align-items:center; gap:7px; margin-top:40px; animation:cnt-rise .7s ease-out .86s both;">
+        <span style="font-size:11px; letter-spacing:.04em; color:#6f7d6b;">Powered by</span>
+        <span style="width:3px; height:3px; border-radius:50%; background:#c9a84c;"></span>
+        <span style="font-size:11px; font-weight:600; letter-spacing:.04em; color:#b7a566;">Golden Gate Equestrian</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ OPTION B — FRAMED EDITORIAL ============ -->
+<div style="position:absolute; left:510px; top:60px; width:390px;">
+  <div data-drags-parent="1" style="font:600 12px/1.4 ui-monospace,monospace; letter-spacing:.08em; color:#5b6b58; text-transform:uppercase; margin:0 0 12px 4px;">B · Framed Editorial</div>
+  <div style="position:relative; width:390px; height:844px; background:#1a2e1a; border-radius:46px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.3); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:#f3efe4;">
+    <div style="position:absolute; top:0; left:0; right:0; height:54px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; z-index:5;">
+      <span style="font-weight:600; font-size:16px;">9:41</span>
+      <div style="display:flex; align-items:center; gap:7px;">
+        <div style="display:flex; align-items:flex-end; gap:2px; height:11px;"><span style="width:3px;height:4px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:6px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:8px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:11px;background:#f3efe4;border-radius:1px;"></span></div>
+        <div style="width:24px;height:12px;border:1.5px solid #f3efe4;border-radius:3px;position:relative;"><div style="position:absolute;inset:1.5px;background:#f3efe4;border-radius:1px;"></div><div style="position:absolute;right:-3px;top:3.5px;width:1.5px;height:5px;background:#f3efe4;border-radius:0 1px 1px 0;"></div></div>
+      </div>
+    </div>
+    <div style="position:absolute; top:14px; left:50%; transform:translateX(-50%); width:114px; height:32px; background:#000; border-radius:18px; z-index:6;"></div>
+
+    <!-- gold hairline frame -->
+    <div style="position:absolute; inset:18px; border:1px solid rgba(201,168,76,.4); border-radius:32px; pointer-events:none; animation:cnt-rise 1s ease-out .2s both;"></div>
+
+    <div style="position:absolute; inset:18px; display:flex; flex-direction:column; align-items:center; padding:54px 40px 44px;">
+      <!-- top eyebrow -->
+      <div style="display:flex; align-items:center; gap:10px; animation:cnt-rise .7s ease-out .35s both;">
+        <span style="width:18px;height:1px;background:#c9a84c;"></span>
+        <span style="font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#c9a84c;">Member Welcome</span>
+        <span style="width:18px;height:1px;background:#c9a84c;"></span>
+      </div>
+
+      <div style="flex:1;"></div>
+
+      <!-- shield -->
+      <div style="position:relative; animation:cnt-shieldIn .9s cubic-bezier(.22,1,.36,1) both;">
+        <div style="position:absolute; top:50%; left:50%; width:230px; height:230px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,.36), rgba(201,168,76,0) 68%); filter:blur(8px); animation:cnt-glow 4.5s ease-in-out infinite;"></div>
+        <div style="position:relative; width:150px; height:184px; animation:cnt-float 6s ease-in-out 1s infinite;">
+          <img src="canter-splash/shield-gold.png" alt="Canter crest" style="width:100%; height:100%; object-fit:contain; display:block; filter:drop-shadow(0 14px 22px rgba(0,0,0,.4));">
+          <div style="position:absolute; inset:0; overflow:hidden; -webkit-mask:url(canter-splash/shield-gold.png) center/contain no-repeat; mask:url(canter-splash/shield-gold.png) center/contain no-repeat; pointer-events:none;">
+            <div style="position:absolute; top:-40%; left:0; width:34%; height:180%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); filter:blur(5px); mix-blend-mode:overlay; animation:cnt-sheen 5.5s ease-in-out 1.4s infinite;"></div>
+          </div>
+        </div>
+      </div>
+
+      <h1 style="margin:30px 0 0; font-family:'Spectral',serif; font-weight:600; font-size:50px; color:#f5f1e6; animation:cnt-rise .7s ease-out .42s both;">Canter</h1>
+      <p style="margin:14px 0 0; font-family:'Spectral',serif; font-style:italic; font-weight:400; font-size:17px; color:#c9a84c; animation:cnt-rise .7s ease-out .5s both;">Your ride to the Grand Prix</p>
+
+      <div style="flex:1;"></div>
+
+      <!-- divider + greeting -->
+      <div style="width:100%; height:1px; background:linear-gradient(90deg, transparent, rgba(201,168,76,.35), transparent); margin-bottom:22px; animation:cnt-rise .7s ease-out .58s both;"></div>
+      <p style="margin:0 0 22px; font-size:16px; color:#cfd6c9; animation:cnt-rise .7s ease-out .64s both;">Hello, <span style="font-family:'Spectral',serif; font-weight:600; color:#f5f1e6;">Ayaan</span></p>
+      <button style="width:100%; height:54px; border:1px solid #c9a84c; border-radius:14px; background:transparent; color:#e8d79a; font-size:16px; font-weight:600; letter-spacing:.02em; cursor:pointer; animation:cnt-rise .7s ease-out .72s both;">Continue</button>
+      <p style="margin:20px 0 0; font-size:11px; letter-spacing:.04em; color:#6f7d6b; animation:cnt-rise .7s ease-out .82s both;">Powered by <span style="color:#b7a566; font-weight:600;">Golden Gate Equestrian</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ OPTION C — IMMERSIVE SPOTLIGHT ============ -->
+<div style="position:absolute; left:1020px; top:60px; width:390px;">
+  <div data-drags-parent="1" style="font:600 12px/1.4 ui-monospace,monospace; letter-spacing:.08em; color:#5b6b58; text-transform:uppercase; margin:0 0 12px 4px;">C · Immersive Spotlight</div>
+  <div style="position:relative; width:390px; height:844px; background:#16240f; border-radius:46px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.3); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:#f3efe4;">
+    <!-- spotlight + vignette -->
+    <div style="position:absolute; inset:0; background:radial-gradient(120% 60% at 50% 26%, rgba(40,64,32,.95), rgba(18,30,12,0) 70%);"></div>
+    <div style="position:absolute; inset:0; background:radial-gradient(140% 90% at 50% 50%, transparent 55%, rgba(0,0,0,.45));"></div>
+
+    <div style="position:absolute; top:0; left:0; right:0; height:54px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; z-index:5;">
+      <span style="font-weight:600; font-size:16px;">9:41</span>
+      <div style="display:flex; align-items:center; gap:7px;">
+        <div style="display:flex; align-items:flex-end; gap:2px; height:11px;"><span style="width:3px;height:4px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:6px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:8px;background:#f3efe4;border-radius:1px;"></span><span style="width:3px;height:11px;background:#f3efe4;border-radius:1px;"></span></div>
+        <div style="width:24px;height:12px;border:1.5px solid #f3efe4;border-radius:3px;position:relative;"><div style="position:absolute;inset:1.5px;background:#f3efe4;border-radius:1px;"></div><div style="position:absolute;right:-3px;top:3.5px;width:1.5px;height:5px;background:#f3efe4;border-radius:0 1px 1px 0;"></div></div>
+      </div>
+    </div>
+    <div style="position:absolute; top:14px; left:50%; transform:translateX(-50%); width:114px; height:32px; background:#000; border-radius:18px; z-index:6;"></div>
+
+    <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; padding:120px 30px 0;">
+      <!-- shield large -->
+      <div style="position:relative; animation:cnt-shieldIn 1s cubic-bezier(.22,1,.36,1) both;">
+        <div style="position:absolute; top:50%; left:50%; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,.5), rgba(201,168,76,0) 66%); filter:blur(10px); animation:cnt-glow 4.5s ease-in-out infinite;"></div>
+        <div style="position:relative; width:196px; height:238px; animation:cnt-float 6s ease-in-out 1s infinite;">
+          <img src="canter-splash/shield-gold.png" alt="Canter crest" style="width:100%; height:100%; object-fit:contain; display:block; filter:drop-shadow(0 18px 26px rgba(0,0,0,.5));">
+          <div style="position:absolute; inset:0; overflow:hidden; -webkit-mask:url(canter-splash/shield-gold.png) center/contain no-repeat; mask:url(canter-splash/shield-gold.png) center/contain no-repeat; pointer-events:none;">
+            <div style="position:absolute; top:-40%; left:0; width:34%; height:180%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent); filter:blur(6px); mix-blend-mode:overlay; animation:cnt-sheen 5.5s ease-in-out 1.4s infinite;"></div>
+          </div>
+        </div>
+      </div>
+
+      <h1 style="margin:26px 0 0; font-family:'Spectral',serif; font-weight:700; font-size:56px; letter-spacing:.01em; color:#f5f1e6; text-shadow:0 2px 18px rgba(0,0,0,.4); animation:cnt-rise .7s ease-out .35s both;">Canter</h1>
+      <p style="margin:12px 0 0; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#c9a84c; animation:cnt-rise .7s ease-out .45s both;">Your Ride to the Grand Prix</p>
+
+      <div style="flex:1;"></div>
+
+      <!-- frosted welcome card -->
+      <div style="width:100%; background:rgba(245,241,230,.06); border:1px solid rgba(201,168,76,.22); border-radius:26px; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); padding:24px 22px 22px; margin-bottom:30px; animation:cnt-rise .8s ease-out .55s both;">
+        <p style="margin:0 0 2px; font-size:14px; color:#a9b4a3;">Welcome back,</p>
+        <p style="margin:0 0 18px; font-family:'Spectral',serif; font-size:26px; font-weight:600; color:#f5f1e6;">Ayaan</p>
+        <button style="width:100%; height:54px; border:none; border-radius:15px; background:linear-gradient(180deg,#dcc06a,#c9a84c); color:#1a2e1a; font-size:17px; font-weight:600; cursor:pointer; box-shadow:0 10px 24px rgba(201,168,76,.3);">Let's Ride</button>
+        <div style="display:flex; align-items:center; justify-content:center; gap:7px; margin-top:18px;">
+          <span style="font-size:11px; color:#6f7d6b;">Powered by</span>
+          <span style="width:3px; height:3px; border-radius:50%; background:#c9a84c;"></span>
+          <span style="font-size:11px; font-weight:600; color:#b7a566;">Golden Gate Equestrian</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
