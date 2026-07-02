@@ -187,10 +187,14 @@ prescription). `—` = design fresh.
 
 | Concept | Meaning | C | P | Can | Web today | iOS today |
 |---|---|:-:|:-:|:-:|---|---|
-| pointsEligibility | points & eligibility | | | | FileCheck | — |
+| pointsEligibility | points & eligibility | | | ✓ | FileCheck | checkmark.seal.fill † |
 | rules | rules-as-data | | | | Scale | — |
 | divisions | divisions | | | | Rows3 | — |
 | points | USEF & circuit points *(iOS stub)* | | | ✓ | — | trophy.fill |
+
+† `pointsEligibility` iOS: the vocab originally suggested `doc.badge.checkmark`, but that
+SF Symbol name **does not render on iOS** — Canter ships `checkmark.seal.fill` (the
+licensed-only 5th coin-fan "Eligibility" entry). Web keeps `FileCheck` (lucide).
 
 ## 11. iOS-only concepts *(no web counterpart yet — T2 to confirm + append the rest)*
 
